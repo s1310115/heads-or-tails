@@ -8,6 +8,7 @@ public class HeadsOrTailsGame {
         System.out.println("Who are you?");
         String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
+        System.out.println("Tossing a coin...");
 
         // Simulate 3 rounds of coin tossing
         int headsCount = 0;
@@ -28,11 +29,11 @@ public class HeadsOrTailsGame {
         // Print total counts
         System.out.println("Heads: " + headsCount + ", Tails: " + tailsCount);
 
-        // Determine and print victory message
+        // Determine and print victory message with user name
         if (headsCount > tailsCount) {
-            System.out.println("You won!");
+            System.out.println(userName + " won!");
         } else {
-            System.out.println("You lost!");
+            System.out.println(userName + " lost!");
         }
     }
 }
