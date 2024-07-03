@@ -1,39 +1,27 @@
-import java.util.Scanner;
+import java.util.Random;
 
-public class HeadsOrTailsGame {
+public class HeadsOrTails {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Ask for user's name
-        System.out.println("Who are you?");
-        String userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
+        Random random = new Random();
+        
         System.out.println("Tossing a coin...");
-
-        // Simulate 3 rounds of coin tossing
+        String[] results = new String[3];
+        
+        for (int i = 0; i < 3; i++) {
+            results[i] = random.nextBoolean() ? "Heads" : "Tails";
+            System.out.println("Round " + (i + 1) + ": " + results[i]);
+        }
+        
         int headsCount = 0;
         int tailsCount = 0;
-        Random random = new Random();
-
-        for (int i = 1; i <= 3; i++) {
-            String result = random.nextBoolean() ? "Heads" : "Tails";
-            System.out.println("Round " + i + ": " + result);
-
+        for (String result : results) {
             if (result.equals("Heads")) {
                 headsCount++;
             } else {
                 tailsCount++;
             }
         }
-
-        // Print total counts
+        
         System.out.println("Heads: " + headsCount + ", Tails: " + tailsCount);
-
-        // Determine and print victory message with user name
-        if (headsCount > tailsCount) {
-            System.out.println(userName + " won!");
-        } else {
-            System.out.println(userName + " lost!");
-        }
     }
 }
